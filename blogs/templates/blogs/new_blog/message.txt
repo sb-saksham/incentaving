@@ -1,0 +1,9 @@
+Greetings from Incentaving.com
+Checkout our new Blog!
+
+{{ title }}
+
+{{ link }}
+
+Regards
+Team Incentaving.com

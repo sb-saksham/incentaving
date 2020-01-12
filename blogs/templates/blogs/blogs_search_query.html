@@ -1,0 +1,24 @@
+{% extends 'home/home.html' %}
+{% block content %}
+    <div class="row text-center">
+        <div class="col-12">
+            <h3>
+                {% if found %}
+                    Search Results For {{ query }} are:
+                {% else %}
+                    No Search Results Found! Try another keywords or Take a Look at this...
+                {% endif %}
+            </h3>
+        </div>
+    </div>
+    {% for blog in search_results %}
+        <div class="row mt-3">
+            <div class="col-lg-4 col-3">
+                <a href="{% url 'blogs:blog_home' slug=blog.slug %}" class="font-of"><img src="{{ blog.image.url }}" class="image"></a>
+            </div>
+            <div class="col-lg-8 col-9">
+                <a href="{% url 'blogs:blog_home' slug=blog.slug %}" class="font-of">{{ blog.title }}</a>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

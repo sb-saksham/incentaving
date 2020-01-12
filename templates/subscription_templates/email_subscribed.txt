@@ -1,0 +1,9 @@
+We are pleased to have you with us...{{ firstname }}
+
+
+Thanks for Subscribing to our Newsletter
+Get updates for our latest blogs and new updates
+
+
+Regards
+Team Incentaving.com

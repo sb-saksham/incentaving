@@ -1,0 +1,41 @@
+{% extends 'home/home.html' %}
+{% block content %}
+    <h3>Featured Articles</h3>
+    <div class="row">
+    {% for blog in blogs %}
+         <div class="col-12 col-lg-4">
+            <div class="row">
+              <div class="col-lg-5 col-md-3 col-4 mt-2 mt-lg-2">
+                  <a href="{% url 'blogs:blog_home' slug=blog.slug %}"><img src="{{ blog.tile_image.url }}" class="image align-self-center my-4 my-lg-3 mx-1" style="height:84px ! important width:84px ! important"></a>
+              </div>
+              <div class="col-lg-7 col-md-9 col-8 my-2 my-md-auto my-lg-1 tiles font-alter">
+                  <div class="row mt-4">
+                      <a href="{% url 'blogs:blog_home' slug=blog.slug %}"><p class="text-wrap font-of"><strong>{{ blog.title }}</strong></p></a>
+                  </div>
+              </div>
+            </div>
+         </div>
+    {% endfor %}
+    </div><hr>
+    <div class="row">
+        <div class="col-12">
+            <nav>
+              <ul class="pagination justify-content-center">
+                {% if blogs.has_previous %}
+                    <li class="page-item disabled">
+                        <a href="?page={{ blogs.previous_page_number }}"><span class="page-link">Previous</span></a>
+                    </li>
+                {% endif %}
+                {% for num in blogs.paginator.page_range %}
+                    <li class="page-item {% if blogs.number == num %}active{% endif %}"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+                {% endfor %}
+                {% if blogs.has_next %}
+                    <li class="page-item">
+                        <a href="?page={{ blogs.next_page_number }}"><span class="page-link">Next</span></a>
+                    </li>
+                {% endif %}
+              </ul>
+            </nav>
+        </div>
+    </div>
+{% endblock %}

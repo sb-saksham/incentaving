@@ -1,0 +1,208 @@
+@media (max-width:992px){
+    .mobileMenu{
+        position:   fixed;
+        top:        0;
+        bottom:     0;
+        left:       0;
+        margin:     auto;
+        background-color:   white;
+        transform:  translateX(-100%);
+        transition: all ease 0.25s;
+    }
+    .mobileMenu.open{
+        position:   fixed;
+        top:        0 ! important;
+        bottom:     0;
+        left:       0;
+        margin:     auto;
+        margin-top: 93px !important;
+        padding-top: 0px !important;
+        background-color:   white;
+        transition: all ease 0.25s;
+        transform: translateX(0);
+        width:264px ! important;
+    }
+    .overlay{
+        position:           fixed;
+        top:                0;
+        bottom:             0;
+        left:               0;
+        right:              0;
+        margin:             auto;
+        background-color:   rgba(0,0,0,0.5);
+        display:            none;
+    }
+    .overlay.open{
+        position:           fixed;
+        top:                0;
+        bottom:             0;
+        left:               0;
+        right:              0;
+        margin:             auto;
+        background-color:   rgba(0,0,0,0.5);
+        display:            block;
+    }
+}
+.logo{
+    margin:0;
+    padding:0;
+    width:198px;
+    height:65px;
+    border-radius:20px;
+}
+.title{
+    font-family: 'Bungee Shade', cursive;
+    font-size:28px ! important;
+    font-color:green;
+}
+.blogPost.font-alter{
+    font-size:21px;
+}
+.card{
+    width:18rem;
+}
+.attention{
+    font-family:'Voltaire', sans-serif;
+}
+.action-image{
+    height:214px;
+    width:214px;
+}
+.headline{
+    font-size:19px;
+}
+#contentmain{
+    margin-top:100px;
+    margin-bottom:0px;
+}
+@media only screen and (max-width: 575.98px) {
+    body{
+        font-size:95% ! important;
+    }
+    #contentmain{
+        margin-top:50px;
+    }
+    .cus_h{
+        height: 200px ! important;
+    }
+    .image{
+        height:86px ! important;
+        width:86px ! important ;
+    }
+    .title{
+        font-size:20px ! important;
+        font-color:green;
+    }
+    .blogPost.font-alter{
+        font-size:18px ! important;
+    }
+    .caption.font-alter{
+        font-size:12px;
+    }
+    .card{
+        width:16rem;
+    }
+    .logo{
+        width:154px;
+        height:65px;
+    }
+    .action-image{
+        height: 114px;
+        width:114px;
+    }
+    .font-of{
+        font-size:15px;
+    }
+    .headline{
+        font-size:12px;
+    }
+
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    font-size:19px;
+}
+
+.cus_h{
+    height: 563px;
+    width:178px;
+}
+.image{
+    height: 114px;
+    width:114px;
+}
+.catchy{
+    font-size:21px;
+    font-family: 'Shadows Into Light', cursive;
+}
+.blogPhoto{
+    height:254px;
+    width:254px;
+}
+.tile{
+    height:50px;
+    width:50px;
+}
+.tiles.font-alter{
+    font-size:17px ! important;
+}
+.caption{
+    font-weight:bolder;
+}
+.searchBar{
+    display:none;
+}
+.searchBar.show{
+    display:block;
+}
+.heading{
+    font-family: 'Vast Shadow', cursive;
+    font-size:17px;
+}
+a{
+    color:black;
+}
+a:hover{
+    color:black;
+}
+.actionInput{
+    width:90%;
+}
+.search{
+    width:300px;
+    margin-left:9px;
+}
+
+html,
+body,
+header,
+#intro {
+    height: 100%;
+}
+#intro {
+    background: url('/static/img/background.png')no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.navbar{
+    background-color:Transparent;
+}
+.navbar.coloured{
+    background-color:white;
+}
+.nav-link{
+    color:black ! important;
+    font-weight:bolder ! important;
+}
+.nav-link:hover{
+    color:gray ! important;
+}
+#mobile{
+    opacity:0.5;
+}
+#mobile.opaque{
+    opacity:1;
+}

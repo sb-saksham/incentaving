@@ -1,0 +1,24 @@
+{% extends 'home/home.html' %}
+{% block content %}
+    <h3>Contact Us</h3>
+    <h5>Please describe your problem in the mail below...</h5><br>
+    <form method="POST">
+        <div class="form-group">
+            <label for="namein">Your Full Name(Same as your Accounts's Full Name)</label>
+            <input type="text" name="user_name" class="form-control" id="namein" placeholder="FirstName LastName">
+        </div>
+        <div class="form-group">
+            <label for="email_input">Email address</label>
+            <input type="email" name="email" class="form-control" id="email_input" placeholder="name@example.com">
+        </div>
+        <div class="form-group">
+            <label for="sub">Subject</label>
+            <input class="form-control" name="subject" id="sub" type="text" placeholder="Brief Description of Problem" required>
+        </div>
+        <div class="form-group">
+            <label for="ele">Body</label>
+            <textarea class="form-control" id="ele" name="body" rows="3" required placeholder="Long description about your problem..."></textarea>
+        </div>
+        <input class="btn btn-primary btn-lg" value="Send" type="submit">
+    </form>
+{% endblock %}

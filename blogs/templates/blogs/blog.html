@@ -1,0 +1,80 @@
+{% extends 'home/home.html' %}
+{% load static %}
+{% block content %}
+<div class="row">
+    <div class="col-12 text-center my-0">
+        <p class="title">{{ blog.0.title }}</p>
+    </div>
+    <div class="col-12 text-center font-alter catchy">
+        <p><span style="font-family: none !important;">~</span>{{ blog.0.author_name }}</p>
+        <p>{{ blog.0.catchy_line }}</p>
+    </div>
+    <div class="col-12"><hr></div>
+    <div class="col-12 text-center">
+        <img src="{{ blog.0.blog_images.all.1.image.url }}" class="mb-3 blogPhoto">
+    </div>
+</div>
+<div class="row">
+    <div class="col-12 text-left blogPost font-alter">
+        {{ blog.0.content|safe }} <!--{{ blog.content }}-->
+    </div>
+</div>
+<div class="row mt-3 mb-0">
+    <div class="col-12">
+        <h4 style="font-weight:bolder;">Comments <i class="fas fa-comments"></i></h4><hr>
+    </div>
+    {% if user.is_authenticated %}
+        <div class="col-12 commentFormSpan">
+            <form method="POST" data-endpoint="{% url 'blogs:commentAjax' %}" class="commentForm">
+                {% csrf_token %}
+                <input value="{{ blog.0.pk }}" name="blogpk" type="hidden">
+                <div class="form-group">
+                    <label for="comment-id" class="heading">Post a Comment</label>
+                    <textarea class="form-control" name="comment_content" id="comment-id" rows="3"></textarea>
+                </div>
+                <input class="btn btn-primary btn-sm" value="Comment" type="submit">
+            </form>
+        </div>
+    {% else %}
+        <div class="col-12 text-center">
+            <p class="heading">
+                <a href="{% url 'accounts:login' %}" class="btn btn-primary btn-sm">Login</a> Or
+                <a href="{% url 'accounts:signup' %}" class="btn btn-primary btn-sm">Signup!</a>
+                <br>to Comment
+            </p>
+        </div>
+    {% endif %}
+    {% for comment in blog.2 %}
+    <div class="col-12 mt-3">
+        <div class="alert" style="background-color:#F5FFFD;border-radius:17px!important;">
+          <div class="toast-header">
+            <strong class="mr-auto">{{ comment.user.first.full_name }}</strong>
+            <small>{{ comment.posted_time.day|safe }}/{{ comment.posted_time.month }}/{{ comment.posted_time.year|safe }}</small>
+          </div>
+          <div class="toast-body">
+            {{ comment.content|safe }}
+          </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<div class="row mt-5 mb-0">
+    <div class="col-12">
+        <p class="heading">Look at our others blogs <i class="far fa-newspaper"></i></p>
+    </div>
+    {% for blog in blog.1 %}
+         <div class="col-12 col-lg-4">
+            <div class="row">
+              <div class="col-lg-5 col-md-3 col-4 mt-2 mt-lg-2">
+                  <a href="{% url 'blogs:blog_home' slug=blog.slug %}"><img src="{{ blog.blog_images.1.image.url}}" class="image align-self-center my-4 my-lg-3 mx-1" style="height:84px ! important width:84px ! important"></a>
+              </div>
+              <div class="col-lg-7 col-md-9 col-8 my-2 my-md-auto my-lg-1 tiles font-alter">
+                  <div class="row mt-4">
+                      <a href="{% url 'blogs:blog_home' slug=blog.slug %}"><p class="text-wrap font-of"><strong>{{ blog.title }}</strong></p></a>
+                  </div>
+              </div>
+            </div>
+         </div>
+    {% endfor %}
+</div>
+{% endblock %}

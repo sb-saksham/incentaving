@@ -1,0 +1,11 @@
+Hello {{ firstname }},
+
+Thanks for joining us!
+Here is your activation link:
+
+{{ path }}
+
+You can login via this link.
+
+Thank You!
+Team Incentaving.com

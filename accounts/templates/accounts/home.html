@@ -1,0 +1,39 @@
+{% extends 'home/home.html' %}
+{% block content %}
+{% load static %}
+    <div class="row text-center">
+        <div class="col-12">
+            <div class="card mx-auto" style="width:350px;">
+                <form method="POST" class="my-auto">
+                    {% csrf_token %}
+                    {% if user.image %}
+                        <img class="card-img-top" src="{{ user.image.url }}" alt="{{ user.get_short_name }}" height="225" width="225">
+                        <p class="text-muted">Change Profile Picture</p>
+                    {% else %}
+                        <img src="{% static 'img/user.png' %}" alt="Add new photo">
+                        <p class="text-muted">Add a Profile Picture</p>
+                    {% endif %}
+                    <br><br>
+                    <input type="file" name="an_image" accept="image/*" value="Profile Photo" class="mx-auto" required="True">
+                    <br><br>
+                    <button type="submit" class="btn btn-warning"><i class='fas fa-edit'></i></button>
+                </form>
+                <div class="card-body text-left">
+                    <h5 class="card-title"><strong class="heading">Name: </strong><br>{{ user.full_name }}</h5>
+                    <p class="card-text text-muted" style="font-size:85%">This name will be used everywhere in your account...</p>
+                    <h5 class="card-title"><strong class="heading">Password:</strong></h5>
+                    <a href="{% url 'password_reset' %}" class="btn btn-secondary">Reset Your Password <i class="fas fa-edit"></i></a>
+                    <p class="card-text text-muted" style="font-size:85%">Change your existing password...</p>
+                    {% if user.conservation_count.all.first and user.conservation_count.all.first.score != 0 %}
+                        <h5 class="card-title"><strong class="heading">Conservation<br>Score:</strong> {{ user.conservation_count.all.first.score }}</h5>
+                        {% if user.conservation_count.all.first.is_apt %}
+                            <p class="card-text text-muted" style="font-size:85%">Your Conservation Score is great congratulations...</p>
+                        {% else %}
+                            <p class="card-text text-muted" style="font-size:85%">Your Conservation Score is not good try improving it...</p>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

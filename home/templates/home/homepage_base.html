@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block nav %}
+    {% include 'home/snippets/homepage-navbar.html' %}
+{% endblock %}
+{% block home %}
+  <div class="row mt-5">
+    <div class="col-3 d-none d-lg-block">
+        <div id="links" class="mx-0 my-5">
+            {% block sidebar %}
+                {% include 'home/snippets/left-sidebar.html' %}
+            {% endblock %}
+        </div>
+        <div id="catching" class="container">
+            {% block card_block %}
+                    {% include 'home/snippets/card.html' with card=card %}
+            {% endblock %}
+        </div>
+        <div>
+            {% block posts %}
+                {% include 'home/snippets/posts.html' with posts_list=posts_list %}
+            {% endblock %}
+        </div>
+        {% if not user.is_authenticated and not request.session.subscribed %}
+        <div class="news-subscribe mt-5">
+            {% include 'home/snippets/news-subscribe.html' %}
+        </div>
+        {% endif %}
+    </div>
+    <div class="col-12 col-lg-9 mt-5">
+          {% if messages %}
+              <div class="container my-4">
+                  <div class="alert alert-success messages">
+                      {% for message in messages %}
+                      <span class="{% if message.tags %}{{ message.tags }}{% endif %}">
+                          {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+                          {{ message }}
+                          <br>
+                      </span>
+                      {% endfor %}
+                  </div>
+              </div>
+        {% endif %}
+        <div class="searchBar my-5">
+            <form class="form-inline my-5" style="order:2" action="{% url 'search' %}" method="GET">
+                <input class="form-control search" name="q" type="search" placeholder="{% if request.GET.q %}{{ request.GET.q }}{% else %}Search...{% endif %}" aria-label="Search">
+                <button class="btn btn-outline-success mr-1" type="submit"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+        {% block content %}
+        {% endblock %}
+    </div>
+  </div>
+{% endblock %}

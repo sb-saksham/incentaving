@@ -1,0 +1,36 @@
+{% extends 'home/home.html' %}
+{% block content %}
+    <div class="row">
+        <div class="col-12">
+            <p class="heading">Welcome to Actions Page</p>
+        </div>
+        {% if c_score %}
+            <div class="col-12">
+                <p>Your conservation score is: {{ c_score }}
+                {% if is_apt == True %}
+                <i style="color:green;width:30px;height:30px;" class="fas fa-check-circle"></i><br>You have done a great job and contributed much to environment<br>Thank you for your Contribution
+                {% else %}
+                    <i style="background-color:Red;width:30px;height:30px;" class="fas fa-frown"></i><br>You have to improve your score a little bit.<br>Try these things out!
+                {% endif %}
+            </p>
+            </div>
+            {% for action in actions %}
+                <div class="col-12 text-center">
+                    <p class="heading"><i style="color:green;" class="fas fa-globe-asia"></i>{{ action.name }}</p>
+                    <img src="{{ action.image.url }}" alt="{{ action.name }}" class="action-image">
+                    <p>Related to: {{ action.related_to_cause }}<br><br><i class="fas fa-clipboard-check" style="color:light-blue;width:20px;height:20px;"></i>{{ action.solution }}</p>
+                </div>
+                <div class="col-12">
+                    <hr style="font-weight:bolder;">
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="col-12">
+                You need to calculate your Conservation Score...<br><br>
+                <a href="{% url 'action:cc_take' %}" class="btn btn-success text-center">Calculate Conservation Score</a>
+            </div>
+        {% endif %}
+    </div>
+
+
+{% endblock %}

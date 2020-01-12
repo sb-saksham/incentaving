@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Incentaving</title>
+    <style>
+        .jumbotron{
+            background-color:#EDEEF0;
+            padding-top:25px;
+            border-radius:45px;
+            height:78%;
+            width:78%;
+        }
+        .footer{
+            margin-left:45px;
+        }
+        hr{
+            margin-top:30px;
+        }
+        a{
+            text-decoration:None;
+            font-weight: bolder;
+            color:white;
+        }
+        body{
+            align:center;
+            font-family: Bookman Old Style;
+        }
+        .lead{
+            font-weight:bolder;
+        }
+        .btn{
+            background-color:#0175D8;
+            width:150px;
+            height:30px;
+            border: 2px solid #0175D8;
+            border-radius:7px;
+        }
+    </style>
+<body>
+    <div align="center">
+        <div class="jumbotron">
+            <h2 style="margin-top:30px;">Greetings from Incentaving.com, </h2>
+            <h1 class="lead">Checkout our new Blog!</h1>
+            <hr>
+            <h3>{{ title }}</h3>
+            <h3 class="lead">
+              <button class="btn"><a href="{{ link }}">Read the Blog</a></button>
+            </h3>
+            <br><br><br><br><br>
+            <div class="footer" align="left">
+               <h3>Regards,<br>Team Incentaving.com</h3>
+            </div>
+        </div>
+    </div>
+</body></html>

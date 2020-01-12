@@ -1,0 +1,15 @@
+<div class="mt-5">
+    <h4 class="headline" align="center"><strong>Recent Posts</strong></h4>
+    {% for post in posts_list %}
+    <div class="row mt-3">
+        <div class="col-2 mt-2">
+            <a href="{% url 'blogs:blog_home' slug=post.slug%}"><img src="{{ post.tile_image.url }}" class="tile"></a>
+        </div>
+        <div class="col-10">
+            <a href="{% url 'blogs:blog_home' slug=post.slug%}" class="font-of">{{ post.title }}</a>
+        </div>
+    </div>
+    {% empty%}
+     <h3>No posts Yet</h3>
+    {% endfor %}
+</div>

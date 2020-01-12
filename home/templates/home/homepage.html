@@ -1,0 +1,33 @@
+{% extends 'home/homepage_base.html' %}
+{% load static %}
+{% block content %}
+      <div class="row">
+        <div class="col-12">
+            {% include 'home/snippets/theme.html' with themes=themes %}
+        </div>
+        <div class="col-12 mt-3 font-alter">
+            <div class="row mx-auto">
+            <!-- for loop to loop through featured pages -->
+                {% for blog in feat_blogs %}
+                <div class="col-12 col-lg-4">
+                    <div class="row">
+                      <div class="col-lg-5 col-md-3 col-4 mt-4 mt-lg-2">
+                          <a href="{% url 'blogs:blog_home' slug=blog.slug%}"><img src="{{ blog.tile_image.url }}" class="image align-self-center my-4 my-lg-3 mx-1" style="height:84px ! important width:84px ! important"></a>
+                      </div>
+                      <div class="col-lg-7 col-md-9 col-8 my-lg-2 my-1 my-md-auto my-lg-1 tiles font-alter">
+                          <div class="row mt-md-4 mt-5">
+                              <a href="{% url 'blogs:blog_home' slug=blog.slug%}"><p class="text-wrap font-of"><strong>{{ blog.title }}</strong></p></a>
+                          </div>
+                      </div>
+                    </div>
+                </div>
+                {% empty %}
+                    <h1>No featured blogs yet..</h1>
+                {% endfor %}
+            </div>
+        </div>
+          <div class="col-12">
+
+          </div>
+      </div>
+{% endblock %}

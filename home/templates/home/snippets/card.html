@@ -1,0 +1,23 @@
+{% url 'action:home' as action_home_url %}
+{% url 'accounts:login' as login_url %}
+{% url 'accounts:signup' as signup_url %}
+{% load static %}
+    <div class="card text-center" style="background-color:#b4d3d4">
+      <div class="card-header heading">
+        Hey{% if user.is_authenticated %}, {{ user.get_short_name }}{% else%} there{% endif %} Here's Tip...
+      </div>
+      <img src="{{ card.image.url }}" class="card-img-top" alt="{{ card.title }}">
+      <div class="card-body" style="background-color:#0ac8cf">
+        <h5 class="card-title heading">{{ card.title }}</h5>
+        <p class="card-text">{{ card.text }}</p>
+        {% if user.is_authenticated %}
+        <a href="{{ action_home_url }}" class="btn btn-secondary">Actions</a>
+        {% else %}
+        <a href="{{ login_url }}" class="btn btn-secondary">Login</a>Or
+        <a href="{{ signup_url }}" class="btn btn-secondary">Signup!</a>
+        {% endif %}
+      </div>
+      <div class="card-footer text-muted catchy">
+        {{ card.hashtag }}
+      </div>
+    </div>

@@ -1,0 +1,30 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Shade|Montserrat|Ribeye+Marrow|Shadows+Into+Light|VT323|Vast+Shadow|Voltaire&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/custom_style.css' %}">
+    <title>Incentaving.com - Incentively Saving Earth</title>
+  </head>
+  <body style="background-color:#bffff1">
+    {% block nav %}
+      {% include 'snippets/navbar.html' %}
+    {% endblock %}
+    {% block home %}
+    {% endblock %}
+    {% include 'snippets/footer.html' %}
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+    <script src="{% static 'fontawesome/js/all.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/csrf.ajax.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/custom_js.js' %}"></script>
+</body>
+</html>

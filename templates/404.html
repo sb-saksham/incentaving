@@ -1,0 +1,11 @@
+{% extends "home/home.html" %}
+{% block content %}
+    <div class='row'>
+        <div class='col text-center'>
+            <h1 class='my-5'>Page Not Found!</h1>
+            <p>404 Error</p>
+            <h2>Take a look at our Featured Blogs...</h2>
+            <p><a href="{% url 'blogs:featured' %}" class="btn btn-success btn-lg">Featured Blogs</a></p>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% load static %}
+  <div id="theme" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <a href="{% url 'blogs:featured' %}"><img src="{% static 'img/theme1.png' %}" class="cus_h d-block w-100" alt="Blogs"></a>
+      </div>
+      <div class="carousel-item">
+        <a href="{% url 'home:about' %}"><img src="{% static 'img/theme2.png' %}" class="cus_h d-block w-100" alt="About"></a>
+      </div>
+      <div class="carousel-item">
+        <a href="{% url 'action:home' %}"><img src="{% static 'img/theme3.png' %}" class="cus_h d-block w-100" alt="Featured Blogs"></a>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#theme" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#theme" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>

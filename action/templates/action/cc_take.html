@@ -1,0 +1,52 @@
+{% extends 'home/home.html' %}
+{% block content %}
+    <p class="heading">Rate your day to day actions here:</p>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="row mr-0">
+        {% for action in actions %}
+        <div class="col-12 mb-2">
+                <div class="row text-center align-center">
+                    <div class="col-12 my-2">
+                        {{ action.name }}
+                    </div>
+                    <div class="col-12 mb-2">
+                        <img src="{{ action.image.url }}" class="action-image">
+                    </div>
+                    <div class="col-12 mb-5">
+                        {{ action.description }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2 d-md-block d-none">
+                        <span></span>
+                    </div>
+                    <div class="col-2">
+                        <span class="headline">Never</span>
+                    </div>
+                    <div class="col-2">
+                        <span class="headline">Seldom</span>
+                    </div>
+                    <div class="col-2">
+                        <span class="headline">Frequently</span>
+                    </div>
+                    <div class="col-2 ml-md-0 ml-4">
+                        <span class="headline">Very Frequently</span>
+                    </div>
+                    <div class="col-2">
+                        <span class="headline">Always</span>
+                    </div>
+                    <div class="col-2 d-md-block d-none"></div>
+                    <div class="col-md-10 col-12">
+                        <input type="range" class="form-control-range actionInput" max="100" min="0" name="{{ action.id }}" value="50">
+                    </div>
+                </div><hr>
+        </div>
+        {% endfor %}
+            <hr>
+            <div class="col-12 align-center text-center">
+                <input type="submit" class="btn btn-success btn-lg" value="Submit">
+            </div>
+        </div>
+    </form>
+{% endblock %}
