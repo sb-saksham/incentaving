@@ -76,7 +76,7 @@ def post_save_blog_send_notification(sender, instance, created, *args, **kwargs)
         context = {'link': link, 'title': instance.title}
         recipient_list = get_rl()
         txt_message = get_template('blogs/new_blog/message.txt').render(context=context)
-        subject = 'Read about the new blog on Incentaving.com ...'
+        subject = 'Read the new blog on Incentaving.com ...'
         html_message = get_template('blogs/new_blog/message.html').render(context=context)
         sent_mail = send_mail(
             from_email='Incentaving <no-reply@Incentaving.com>',
