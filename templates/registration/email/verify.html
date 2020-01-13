@@ -7,13 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Incentaving</title>
     <style>
-        .jumbotron{
-            background-color:#EDEEF0;
-            padding-top:25px;
-            border-radius:45px;
-            height:78%;
-            width:78%;
-        }
         .footer{
             margin-left:45px;
         }
@@ -21,6 +14,7 @@
             margin-top:30px;
         }
         body{
+            background-color:#EDEEF0;
             align:center;
             font-family: Bookman Old Style;
         }
@@ -31,15 +25,13 @@
 </head>
 <body>
     <div align="center">
-        <div class="jumbotron">
-            <h2 style="margin-top:30px;">Hello {{ firstname }}</h2>
-            <h1 class="lead">Thanks for joining us!</h1>
-            <h2>Here is your activation link:</h2>
-            <h1><a href="{{ path }}">{{ path }}</a></h1>
-            <h3>You can login via this link.</h3>
+        <h2 style="margin-top:30px;">Hello {{ firstname }}</h2>
+        <h1 class="lead">Thanks for joining us!</h1>
+        <h2>Here is your activation link:</h2>
+        <h1><a href="{{ path }}">{{ path }}</a></h1>
+        <h3>You can login via this link.</h3>
         <div class="footer" align="left">
            <h3>Regards,<br>Team Incentaving.com</h3>
-        </div>
         </div>
     </div>
 </body>

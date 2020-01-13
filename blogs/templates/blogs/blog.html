@@ -11,7 +11,7 @@
     </div>
     <div class="col-12"><hr></div>
     <div class="col-12 text-center">
-        <img src="{{ blog.0.blog_images.all.1.image.url }}" class="mb-3 blogPhoto">
+        <img src="{{ blog.0.tile_image.url }}" class="mb-3 blogPhoto">
     </div>
 </div>
 <div class="row">
@@ -48,6 +48,7 @@
     <div class="col-12 mt-3">
         <div class="alert" style="background-color:#F5FFFD;border-radius:17px!important;">
           <div class="toast-header">
+            <img src="{{ comment.user.first.image.url }}" class="commentPhoto rounded mr-2">
             <strong class="mr-auto">{{ comment.user.first.full_name }}</strong>
             <small>{{ comment.posted_time.day|safe }}/{{ comment.posted_time.month }}/{{ comment.posted_time.year|safe }}</small>
           </div>

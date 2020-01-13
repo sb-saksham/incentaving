@@ -206,3 +206,8 @@ header,
 #mobile.opaque{
     opacity:1;
 }
+.commentPhoto{
+    height:24px ! important;
+    width:24px ! important;
+    border-radius:50% ! important;
+}

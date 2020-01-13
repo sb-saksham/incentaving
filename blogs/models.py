@@ -68,12 +68,13 @@ def get_rl():
 
 def post_save_blog_send_notification(sender, instance, created, *args, **kwargs):
     if instance.is_published:
-        #host = 'https://' + settings.ALLOWED_HOSTS[1]
-        host = 'https://'
-        link = host + str(instance.get_absolute_url())
+        if not settings.debug:
+            host = 'https://' + settings.ALLOWED_HOSTS[1]
+        else:
+            host = 'http://'
+        link = str(host) + str(instance.get_absolute_url())
         context = {'link': link, 'title': instance.title}
         recipient_list = get_rl()
-        print('context', context, '\n', 'rl', recipient_list)
         txt_message = get_template('blogs/new_blog/message.txt').render(context=context)
         subject = 'Read about the new blog on Incentaving.com ...'
         html_message = get_template('blogs/new_blog/message.html').render(context=context)

@@ -4,7 +4,7 @@
 {% load static %}
     <div class="card text-center" style="background-color:#b4d3d4">
       <div class="card-header heading">
-        Hey{% if user.is_authenticated %}, {{ user.get_short_name }}{% else%} there{% endif %} Here's Tip...
+        Hey{% if user.is_authenticated %}, {{ user.get_short_name }}{% else%} there!<br>{% endif %} Here's Tip...
       </div>
       <img src="{{ card.image.url }}" class="card-img-top" alt="{{ card.title }}">
       <div class="card-body" style="background-color:#0ac8cf">

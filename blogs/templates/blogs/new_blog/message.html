@@ -7,13 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Incentaving</title>
     <style>
-        .jumbotron{
-            background-color:#EDEEF0;
-            padding-top:25px;
-            border-radius:45px;
-            height:78%;
-            width:78%;
-        }
         .footer{
             margin-left:45px;
         }
@@ -26,6 +19,7 @@
             color:white;
         }
         body{
+            background-color:#EDEEF0;
             align:center;
             font-family: Bookman Old Style;
         }
@@ -40,20 +34,20 @@
             border-radius:7px;
         }
     </style>
+</head>
 <body>
     <div align="center">
-        <div class="jumbotron">
-            <h2 style="margin-top:30px;">Greetings from Incentaving.com, </h2>
-            <h1 class="lead">Checkout our new Blog!</h1>
-            <hr>
-            <h3>{{ title }}</h3>
-            <h3 class="lead">
-              <button class="btn"><a href="{{ link }}">Read the Blog</a></button>
-            </h3>
-            <br><br><br><br><br>
-            <div class="footer" align="left">
-               <h3>Regards,<br>Team Incentaving.com</h3>
-            </div>
+        <h2 style="margin-top:30px;">Greetings from Incentaving.com, </h2>
+        <h1 class="lead">Checkout our new Blog!</h1>
+        <hr>
+        <h3>{{ title }}</h3>
+        <h3 class="lead">
+          <a class="btn" href="{{ link }}">Read the Blog</a>
+        </h3>
+        <br><br><br><br><br>
+        <div class="footer" align="left">
+           <h3>Regards,<br>Team Incentaving.com</h3>
         </div>
     </div>
-</body></html>
+</body>
+</html>

@@ -89,6 +89,7 @@ def comment_ajax(request):
             comment_obj.save()
             jsondata = {
                 'name': user.get_short_name(),
+                'img_url': user.image.url,
                 'content': content,
                 'day': comment_obj.posted_time.day,
                 'month': comment_obj.posted_time.month,

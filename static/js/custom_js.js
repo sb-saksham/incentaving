@@ -38,7 +38,7 @@ $(document).ready(function(){
                     data: formData,
                     success: function(data){
                         if(data.done){
-                            commentFormSpan.append("<div class='col-12 mt-3'><div class='alert' style='background-color:#F5FFFD;border-radius:17px!important;'><div class='toast-header'><strong class='mr-auto'>"+data.name+"</strong><small>"+data.day+"/"+data.month+"/"+data.year+"</small></div><div class='toast-body'>"+data.content+"</div></div></div>");
+                            commentFormSpan.append("<div class='col-12 mt-3'><div class='alert' style='background-color:#F5FFFD;border-radius:17px!important;'><div class='toast-header'><img src='"+data.img_url+"' class='commentPhoto rounded mr-2'><strong class='mr-auto'>"+data.name+"</strong><small>"+data.day+"/"+data.month+"/"+data.year+"</small></div><div class='toast-body'>"+data.content+"</div></div></div>");
                             }else{
                                 alert(data.message)
                             }

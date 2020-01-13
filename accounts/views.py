@@ -115,6 +115,5 @@ def subscribe(request):
         message_of = """<strong>You have been successfully subscribed to our newsletter</strong>"""
         messages.success(request, mark_safe(message_of))
         if request.is_ajax():
-            print('it is ajaxifying')
             return JsonResponse({'message': message_of})
         return HttpResponseRedirect('/', {'messages': messages.get_messages(request)})
