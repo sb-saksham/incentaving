@@ -20,10 +20,12 @@
                 {% include 'home/snippets/posts.html' with posts_list=posts_list %}
             {% endblock %}
         </div>
-        {% if not user.is_authenticated and not request.session.subscribed %}
-        <div class="news-subscribe mt-5">
-            {% include 'home/snippets/news-subscribe.html' %}
-        </div>
+        {% if not user.is_authenticated %}
+            {% if not request.session.subscribed %}
+            <div class="news-subscribe mt-5">
+                {% include 'home/snippets/news-subscribe.html' %}
+            </div>
+            {% endif%}
         {% endif %}
     </div>
     <div class="col-12 col-lg-9 mt-5">

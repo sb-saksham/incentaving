@@ -13,11 +13,9 @@ $(document).ready(function(){
                     method: method,
                     data: formData,
                     success: function(data){
-                        console.log("We are ajaxifying")
                         sspan.html("<div class='row'><div class='col-12'>You have been successfully subscribed to our Newsletter...</div></div>");
                     },
                     error: function(errorData){
-                        console.log(errorData)
                         alert('An error occurred!<br>Please try again...');
                     },
                 });
@@ -44,7 +42,6 @@ $(document).ready(function(){
                             }
                         },
                     error: function(errorData){
-                        console.log(errorData)
                         alert('An error occurred!<br>Please try again...');
                     },
                 });

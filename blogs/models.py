@@ -71,7 +71,7 @@ def post_save_blog_send_notification(sender, instance, created, *args, **kwargs)
         if not settings.debug:
             host = 'https://' + settings.ALLOWED_HOSTS[1]
         else:
-            host = 'http://'
+            host = 'http://127.0.0.1:8000'
         link = str(host) + str(instance.get_absolute_url())
         context = {'link': link, 'title': instance.title}
         recipient_list = get_rl()
