@@ -17,7 +17,7 @@ cause_choices = [
 
 class Action(models.Model):
     name = models.CharField(max_length=200)
-    image = models.ImageField(upload_to='action_images', null=True, blank=True)
+    image = models.ImageField(upload_to='action_images', null=True, blank=True)  # change upload_to=media/action_images/
     related_to_cause = models.CharField(max_length=40, choices=cause_choices)
     description = models.CharField(max_length=400, unique=True)
     solution = models.CharField(max_length=400)

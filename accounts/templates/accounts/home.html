@@ -10,16 +10,17 @@
                 <form method="POST" class="my-auto">
                     {% csrf_token %}
                     {% if user.image %}
-                        <img class="card-img-top" src="{{ user.image.url }}" alt="{{ user.get_short_name }}" height="225" width="225">
+                        <img class="card-img-top" src="{{ user.image.url }}" alt="{{ user.get_short_name }}" height="400" width="225">
+                        <br><input type="file" name="an_image" accept="image/*" value="Profile Photo" class="mx-auto" required>
                         <p class="text-muted">Change Profile Picture</p>
+                        <button type="submit" class="btn btn-warning"><i class='fas fa-edit'></i></button>
                     {% else %}
                         <img src="{% static 'img/user.png' %}" alt="Add new photo">
+                        <br><input type="file" name="an_image" accept="image/*" value="Profile Photo" class="mx-auto" required>
                         <p class="text-muted">Add a Profile Picture</p>
+                        <button type="submit" class="btn btn-warning"><i class='fas fa-edit'></i></button>
                     {% endif %}
                     <br><br>
-                    <input type="file" name="an_image" accept="image/*" value="Profile Photo" class="mx-auto" required="True">
-                    <br><br>
-                    <button type="submit" class="btn btn-warning"><i class='fas fa-edit'></i></button>
                 </form>
                 <div class="card-body text-left">
                     <h5 class="card-title"><strong class="heading">Name: </strong><br>{{ user.full_name }}</h5>

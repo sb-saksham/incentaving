@@ -75,6 +75,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
                 'context_processors.cards_themes',
             ],
         },
@@ -139,7 +140,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 STATIC_URL = '/static/'
 # STATIC_ROOT = '/ /'
-
+# !!!IMPORTANT!!!  In MEDIA_ROOT use a trailing slash at end to store the files
 # MEDIA_ROOT = '/ /'
 MEDIA_URL = '/media/'
 

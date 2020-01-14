@@ -92,6 +92,12 @@ class RegisterForm(forms.ModelForm):
         user = super(RegisterForm, self).save(commit=False)
         user.set_password(self.cleaned_data["password1"])
         user.is_active = False
+        full_name = str(user.full_name)
+        try:
+            fn, ln = full_name.split(' ')
+            user.full_name = fn.title() + ' ' + ln.title()
+        except AttributeError:
+            pass
         # activation sent via the signals
         if commit:
             user.save()
