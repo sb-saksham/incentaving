@@ -77,7 +77,7 @@ class User(AbstractBaseUser):
         try:
             sn = self.full_name.split(' ')[0]
         except AttributeError:
-            sn = None
+            sn = self.full_name
         return sn
 
     def has_perm(self, perm, obj=None):
@@ -159,7 +159,10 @@ class EmailActivation(models.Model):
         if not self.activated and not self.forced_expired:
             if self.key:
                 firstname = self.user.get_short_name()
-                path = 'https://' + settings.ALLOWED_HOSTS[1]
+                if not settings.DEBUG:
+                    path = 'https://' + settings.ALLOWED_HOSTS[1]
+                else:
+                    path = 'http://127.0.0.1:8000'
                 path = path + reverse("accounts:email-activation", kwargs={'key': self.key})
                 context = {
                     'path': path,
@@ -189,6 +192,13 @@ pre_save.connect(pre_save_email_reciever, sender=EmailActivation)
 
 def post_save_user_receiver(sender, instance, created, *args, **kwargs):
     if created:
+        if instance.full_name:
+            full_name = str(instance.full_name)
+            try:
+                fn, ln = full_name.split(' ')
+                instance.full_name = fn.title() + ' ' + ln.title()
+            except AttributeError:
+                pass
         obj = EmailActivation.objects.create(user=instance, email=instance.email)
         obj.send_activation()
 

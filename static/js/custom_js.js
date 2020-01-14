@@ -65,7 +65,7 @@ $(document).ready(function(){
            });
            $('#searchBar-toggler').click(function(){
                 $(".searchBar").toggleClass('show');
-                $("html, body").scrollTop($('.searchBar').offset().top);
+                $(window).scrollTop($('#topatbase').offset().top);
            });
             //For AutoSearch
             var searchForm = $('.searchForm');

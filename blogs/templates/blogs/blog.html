@@ -24,7 +24,7 @@
         <h4 style="font-weight:bolder;">Comments <i class="fas fa-comments"></i></h4><hr>
     </div>
     {% if user.is_authenticated %}
-        <div class="col-12 commentFormSpan">
+        <div class="col-12 commentFormSpan" id="comment">
             <form method="POST" data-endpoint="{% url 'blogs:commentAjax' %}" class="commentForm">
                 {% csrf_token %}
                 <input value="{{ blog.0.pk }}" name="blogpk" type="hidden">
@@ -38,9 +38,12 @@
     {% else %}
         <div class="col-12 text-center">
             <p class="heading">
-                <a href="{% url 'accounts:login' %}" class="btn btn-primary btn-sm">Login</a> Or
-                <a href="{% url 'accounts:signup' %}" class="btn btn-primary btn-sm">Signup!</a>
-                <br>to Comment
+                Please
+                <form method="GET" action="{% url 'accounts:login' %}">
+                    <input type="hidden" name="next" value="{{ request.path }}#comment">
+                    <input type="submit" class="btn btn-primary btn-sm" value="Login">
+                </form>
+                To Comment
             </p>
         </div>
     {% endif %}

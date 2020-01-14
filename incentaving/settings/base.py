@@ -33,7 +33,7 @@ AUTH_USER_MODEL = 'accounts.User'
 
 LOGIN_URL = '/user/login/'
 LOGOUT_URL = '/user/logout/'
-LOGOUT_REDIRECT_URL = '/blog/featured/'
+LOGOUT_REDIRECT_URL = '/'
 
 # Application definition
 

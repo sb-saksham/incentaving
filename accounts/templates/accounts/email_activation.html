@@ -8,7 +8,7 @@
             {% else %}
             <h1 class="my-5 py-5">Reactivate your Email below</h1>
             {% endif %}
-            <form method="post" action="">
+            <form method="POST" action="">
                 {% csrf_token %}
                 {% bootstrap_form form %}
                 <input class="btn btn-secondary" value="Resend Activation" type="submit">

@@ -1,7 +1,7 @@
 {% extends "home/home.html" %}
 {% load bootstrap4 %}
 {% block content %}
-    <form method="post" action="{% url 'accounts:subscribe' %}">
+    <form method="POST" action="{% url 'accounts:subscribe' %}">
         {% csrf_token %}
         {% bootstrap_form form %}
         <input class="btn btn-success" type="submit" value="Subscribe">

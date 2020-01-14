@@ -87,6 +87,7 @@ class RegisterView(CreateView):
         return url
 
     def form_valid(self, form):
+        form.save()
         message = """You have been Signed Up! <strong>Please check your email for Activation Link</strong>"""
         messages.success(request=self.request, message=mark_safe(message))
         return HttpResponseRedirect('/user/login/', {'messages': messages.get_messages(self.request)})
@@ -110,6 +111,11 @@ def subscribe(request):
         news_form = request.POST
         email = news_form.get('email')
         full_name = news_form.get('fullName')
+        try:
+            fn, ln = full_name.split(' ')
+            full_name = fn.title()+' '+ln.title()
+        except AttributeError:
+            pass
         email_news_object = EmailSubscription.objects.create(full_name=full_name, email=email)
         request.session['subscribed'] = True
         message_of = """<strong>You have been successfully subscribed to our newsletter</strong>"""

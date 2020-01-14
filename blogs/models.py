@@ -68,7 +68,7 @@ def get_rl():
 
 def post_save_blog_send_notification(sender, instance, created, *args, **kwargs):
     if instance.is_published:
-        if not settings.debug:
+        if not settings.DEBUG:
             host = 'https://' + settings.ALLOWED_HOSTS[1]
         else:
             host = 'http://127.0.0.1:8000'
