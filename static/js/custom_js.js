@@ -42,7 +42,7 @@ $(document).ready(function(){
                             }
                         },
                     error: function(errorData){
-                        alert('An error occurred!<br>Please try again...');
+                        alert('An error occurred! Please try again...');
                     },
                 });
             });

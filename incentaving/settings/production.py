@@ -88,7 +88,7 @@ WSGI_APPLICATION = 'incentaving.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-
+SILENCED_SYSTEM_CHECKS = ['mysql.E001']
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',

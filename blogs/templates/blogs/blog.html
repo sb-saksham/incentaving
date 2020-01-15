@@ -53,7 +53,7 @@
           <div class="toast-header">
             <img src="{{ comment.user.first.image.url }}" class="commentPhoto rounded mr-2">
             <strong class="mr-auto">{{ comment.user.first.full_name }}</strong>
-            <small>{{ comment.posted_time.day|safe }}/{{ comment.posted_time.month }}/{{ comment.posted_time.year|safe }}</small>
+            <small>{{ comment.posted_time.date }}</small>
           </div>
           <div class="toast-body">
             {{ comment.content|safe }}

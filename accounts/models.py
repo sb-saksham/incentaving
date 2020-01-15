@@ -52,7 +52,7 @@ class UserManager(BaseUserManager):
 
 class User(AbstractBaseUser):
     email = models.EmailField(max_length=264, unique=True)
-    image = models.ImageField(upload_to='profile_images/', null=True, blank=True) # change upload_to='media/profile_images/'
+    image = models.ImageField(upload_to='profile_images/', default="profile_images/default.png", null=True, blank=True) # change upload_to='media/profile_images/'
     full_name = models.CharField(max_length=264, null=True, blank=True)
     is_active = models.BooleanField(default=True)  # can login
     staff = models.BooleanField(default=False)  # is a staff
