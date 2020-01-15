@@ -43,9 +43,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Developed Apps
+
     'bootstrap4',
     'ckeditor',
+    # Developed Apps
     'blogs',
     'action',
     'accounts',
@@ -90,8 +91,10 @@ WSGI_APPLICATION = 'incentaving.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'OPTIONS': {
+            'read_default_file': '/incentaving/auth/mysql.cnf'
+        }
     }
 }
 # Password Hashing
@@ -139,9 +142,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 STATIC_URL = '/static/'
-# STATIC_ROOT = '/ /'
+STATIC_ROOT = '/incentaving/site/public/static/'
 # !!!IMPORTANT!!!  In MEDIA_ROOT use a trailing slash at end to store the files
-# MEDIA_ROOT = '/ /'
+MEDIA_ROOT = '/incentaving/site/public/media/'
 MEDIA_URL = '/media/'
 
 DEFAULT_FROM_EMAIL = 'Incentaving <no-reply@Incentaving.com>'
